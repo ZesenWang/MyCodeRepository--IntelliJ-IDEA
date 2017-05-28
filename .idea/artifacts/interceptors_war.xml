@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="interceptors:war">
+    <output-path>$USER_HOME$/Downloads/struts-examples-master/interceptors/target</output-path>
+    <root id="archive" name="interceptors.war">
+      <element id="artifact" artifact-name="interceptors:war exploded" />
+    </root>
+  </artifact>
+</component>

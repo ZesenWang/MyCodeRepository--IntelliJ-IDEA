@@ -39,16 +39,34 @@
     </properties>
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Osmorc" url="file://$USER_HOME$/Downloads/osgi/managed-jpa" />
+    <file type="Osmorc" url="file://$USER_HOME$/Downloads/osgi/unmanaged-jpa" />
+    <file type="Osmorc" url="file://$USER_HOME$/Downloads/osgi/unmanaged-native" />
+    <file type="web" url="file://$USER_HOME$/Downloads/struts-examples-master/interceptors" />
+    <file type="web" url="file://$PROJECT_DIR$/HibernateTest" />
+    <file type="web" url="file://$PROJECT_DIR$/InputFile" />
     <file type="web" url="file://$PROJECT_DIR$/MavenTest" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/MavenTest/pom.xml" />
+        <option value="$USER_HOME$/Downloads/struts-examples-master/interceptors/pom.xml" />
+        <option value="$PROJECT_DIR$/InputFile/pom.xml" />
+        <option value="$USER_HOME$/Downloads/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$USER_HOME$/Downloads/annotations/pom.xml" />
+        <option value="$USER_HOME$/Downloads/basic/pom.xml" />
+        <option value="$USER_HOME$/Downloads/entitymanager/pom.xml" />
+        <option value="$USER_HOME$/Downloads/envers/pom.xml" />
+        <option value="$USER_HOME$/Downloads/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

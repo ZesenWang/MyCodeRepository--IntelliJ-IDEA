@@ -6,11 +6,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="InputFile" />
+        <module name="interceptors" />
         <module name="MavenTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="fileinput" target="1.5" />
+      <module name="hibernate-tutorial-annotations" target="1.5" />
+      <module name="hibernate-tutorial-entitymanager" target="1.5" />
+      <module name="hibernate-tutorial-envers" target="1.5" />
+      <module name="hibernate-tutorial-hbm" target="1.5" />
+      <module name="hibernate-tutorial-osgi" target="1.5" />
+      <module name="hibernate-tutorials" target="1.5" />
+      <module name="HibernateTest" target="1.5" />
+      <module name="InputFile" target="1.5" />
+      <module name="interceptors" target="1.8" />
+      <module name="managed-jpa" target="1.5" />
       <module name="MavenTest" target="1.5" />
+      <module name="unmanaged-jpa" target="1.5" />
+      <module name="unmanaged-native" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -7,12 +7,14 @@
       <module fileurl="file://$PROJECT_DIR$/Concurrent/Concurrent.iml" filepath="$PROJECT_DIR$/Concurrent/Concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/Formatter/Formatter.iml" filepath="$PROJECT_DIR$/Formatter/Formatter.iml" />
       <module fileurl="file://$PROJECT_DIR$/IOTest/IOTest.iml" filepath="$PROJECT_DIR$/IOTest/IOTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InputFile/InputFile.iml" filepath="$PROJECT_DIR$/InputFile/InputFile.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaProject.iml" filepath="$PROJECT_DIR$/JavaProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/MavenTest/MavenTest.iml" filepath="$PROJECT_DIR$/MavenTest/MavenTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" filepath="$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/RegularExpression/RegularExpression.iml" filepath="$PROJECT_DIR$/RegularExpression/RegularExpression.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/UDP/UDP.iml" filepath="$PROJECT_DIR$/UDP/UDP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netShopping1/netShopping1.iml" filepath="$PROJECT_DIR$/netShopping1/netShopping1.iml" />
     </modules>
   </component>
 </project>

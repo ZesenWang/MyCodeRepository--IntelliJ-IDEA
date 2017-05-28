@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="interceptors:war exploded">
+    <output-path>$USER_HOME$/Downloads/struts-examples-master/interceptors/target/interceptors</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="interceptors" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5.11-SNAPSHOT/struts2-core-2.5.11-20170512.074935-42.jar" output-file-name="struts2-core-2.5.11-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.1.12" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.20.0-GA" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.8.2" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.2" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.8.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$USER_HOME$/Downloads/struts-examples-master/interceptors/target/interceptors/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="interceptors/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -13,5 +13,6 @@
 </head>
 <body>
 <h5><s:property value="userName"/></h5>
+<p>I've said hello to you <s:property value="#session.helloCount" /> times!</p>
 </body>
 </html>

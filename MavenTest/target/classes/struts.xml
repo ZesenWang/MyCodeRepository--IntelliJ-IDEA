@@ -11,9 +11,12 @@
     <package name="basicstruts2" extends="struts-default">
         <interceptors>
             <interceptor-stack name="appDefaultStack">
+
                 <interceptor-ref name="defaultStack">
                     <param name="exception.logEnabled">true</param>
                     <param name="exception.logLevel">ERROR</param>
+                    <!--忽略一些参数，防止恶意的攻击-->
+                    <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
                 </interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -28,10 +31,21 @@
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
-
-        <action name="index" class="com.sample.Hello" method="execute">
+        <!--我们委托spring框架创建Hello类，注意class 属性的改变-->
+        <!--<action name="index" class="com.sample.Hello" method="execute">-->
+            <!--<exception-mapping exception="org.apache.struts.register.exceptions.SecurityBreachException"-->
+                               <!--result="login" />-->
+            <!--<result name="SUCCESS">/hello.jsp</result>-->
+        <!--</action>-->
+        <action name="index" class="hello" method="execute">
             <exception-mapping exception="org.apache.struts.register.exceptions.SecurityBreachException"
                                result="login" />
+            <interceptor-ref name="timer" />
+            <interceptor-ref name="logger" />
+            <interceptor-ref name="defaultStack">
+                <param name="exception.logEnabled">true</param>
+                <param name="exception.logLevel">ERROR</param>
+            </interceptor-ref>
             <result name="SUCCESS">/hello.jsp</result>
         </action>
 
@@ -49,6 +63,7 @@
         <action name="*Register" class="com.sample.Register" method="{1}">
             <result name="input">/register.jsp</result>
             <result name="success">/thankyou.jsp</result>
+            <!--下面这个一定要有，否则会提示找不到相关映射-->
             <allowed-methods>register,exception,input</allowed-methods>
         </action>
     </package>
