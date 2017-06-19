@@ -14,7 +14,8 @@
       <module fileurl="file://$PROJECT_DIR$/RegularExpression/RegularExpression.iml" filepath="$PROJECT_DIR$/RegularExpression/RegularExpression.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/UDP/UDP.iml" filepath="$PROJECT_DIR$/UDP/UDP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/netShopping1/netShopping1.iml" filepath="$PROJECT_DIR$/netShopping1/netShopping1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautyContry/netShopping1.iml" filepath="$PROJECT_DIR$/beautyContry/netShopping1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beautyContry2/beautyContry2.iml" filepath="$PROJECT_DIR$/beautyContry2/beautyContry2.iml" />
     </modules>
   </component>
 </project>
