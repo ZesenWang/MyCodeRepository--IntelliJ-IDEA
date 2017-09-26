@@ -1,5 +1,7 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="com.po.Book" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +15,7 @@
 
 <!-- include alertify script -->
 <script src="alertify.js-0.3.11/lib/alertify.min.js"></script>
-<title>笔墨相处啊</title>
+<title>笔墨相传</title>
 <style type="text/css">
 body{
 	background-image:url(picture/6.jpg);
@@ -66,7 +68,7 @@ $(function (){
 <!-- 导航条 结束-->
 
 <!--好书分享大标题开始-->
- <div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:10%;">
+ <div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:15px;">
       <h1 style="color:#000;">墨香依旧，笔墨相传</h1>
       <p style="text-indent:80px;"><small style="color: #333;font-size:20px;">书中的临安是否如眼前的泉水般凛冽</small>
       <button type="button" class="btn btn-primary" style="text-indent:0px;opacity:0.8;
@@ -86,7 +88,7 @@ filter:alpha(opacity=40);"id="uploadBookButton">点击上传分享</button>
       </div>
       
       <div class="modal-body">
-             <form class="form-horizontal" id="edit_form">  
+             <form class="form-horizontal" id="edit_form" action="uploadBook.action">
                  <h3 class="form-title" style="text-align:center">分享内容上传</h3> <br /> 
                  
                     <div class="" style="margin-left:20px; margin-right:20px;">  
@@ -102,7 +104,7 @@ filter:alpha(opacity=40);"id="uploadBookButton">点击上传分享</button>
                             </div>  
                             
                             <div class="form-group">  
-                                     分享内容：<textarea class="form-control"  style="height:200px; overflow-x:auto" placeholder="在这里写下这本书值得推荐的理由或者简短简述你读完这本书的感悟，不要超过1000字哦~~~"></textarea>
+                                     分享内容：<textarea class="form-control"  style="height:200px; overflow-x:auto" placeholder="在这里写下这本书值得推荐的理由或者简短简述你读完这本书的感悟，不要超过1000字哦~~~" name="profile"></textarea>
                                     </div>  
                 
                         </div>  <!--calss=""结束-->
@@ -122,57 +124,31 @@ filter:alpha(opacity=40);"id="uploadBookButton">点击上传分享</button>
 <!--页面左半边已上传的好书介绍文字显示开始-->
 <div class="left col-sm-7 col-sm-offset-1 col-xs-12">
 <ul class="media-list">
-<!--第一个li-->
-  <li class="media" style="margin-bottom:100px;">
+<!--li循环开始-->
+    <%
+        List list = (List) request.getAttribute("books");
+        for(int i = 0; i < list.size(); i++) {
+            Book book = (Book) list.get(i);
+    %>
+ <li class="media" style="margin-bottom:100px;">
     <div class="media-left">
        <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="...">
+       <img src="picture/bookPic/nansongLA.jpg" />
+       <!--   <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="%=book.getCover()%>" alt="...">-->
       </a>
-       <p style="text-align:center; font-size:16px;">清风自来</p>
+       <p style="text-align:center; font-size:16px;">《<%=book.getBookname()%>》</p>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">《临安文化志》</h4>
-<p style="text-indent:50px;min-height:200px; overflow-x:auto">作　　者：《临安市文化志》编纂委员会 编出 <br />
-版 社：方志出版社<br />
-出版时间：2008-10-1<br />
-自东汉史学家班固首创中国“文化志”（《汉书·艺文志》后，历代方志亦取其体，设置“艺文篇（卷）”。清人傅玉露总纂《浙江通，志》，凡208卷，平列门类54个，“艺文”为其一。当今，盛世修志，志苑中各种地方志、专业志宛若雨后春笋、烂漫山花，在经济社会发展中，发挥着“存史、资治、教化”功能。所观当代方志，一般多传承旧体，在其中设“文化编”以记述文化发展脉络和成果，并辅以“丛录”，收入具重要历史价值的艺文。而专以一域之人文历史和文化建设而成志，尚属罕见。临安市文化行政主管部门在市委、市政府支持下，艰辛劳作逾四年，编成《临安市文化，勘，洋洋48万言，上自秦汉置县，下迄改革开放，通贯二千余年，将临安文化发展史迹粹集一书，纵横兼备，图文并茂，实为一大功德无量的美举。</p>
+      <h4 class="media-heading">《<%=book.getBookname()%>》</h4>
+<p style="text-indent:50px;min-height:200px; overflow-x:auto">作　　者：<%=book.getAuthor()%> <br />出版 社：<%=book.getPublisher()%><br />出版时间：<%=book.getPublishDate()%><br />
+<%=book.getProfile()%></p>
     </div>
   </li>
   
-  
-  <!--第二个li-->
-  <li class="media" style="margin-bottom:100px;">
-    <div class="media-left">
-   <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="...">
-      </a>
-       <p style="text-align:center; font-size:16px;">清风自来</p>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">《南宋史研究丛书·南宋与杭州:南宋临安文化》</h4>
-<p style="text-indent:50px;min-height:200px; overflow-x:auto">出版社: 杭州出版社; <br />
-第1版 (2010年12月1日)<br />
-丛书名: 浙江文化研究工程成果文库<br />
-《南宋史研究丛书·南宋与杭州:南宋临安文化》以临安三志为基础，以翔实的史料，介绍了南宋都城临安的各类文化情况及其成就。全书分朝廷的文化机关——秘书省、南宋朝廷的图书馆、朝廷的天文、医药机构、国子监与三学、朝廷的修史机构、朝廷的架阁档案、朝廷乐舞机构、临安籍的科技文化名家、临安的餐饮文化、临安的西湖与游乐、临安的文化娱乐、临安的体育与杂技、临安的道教、临安的佛寺、临安的祠庙、临安地方文献等篇章。</p>
-    </div>
-  </li>
-  
-  <!--第三个li-->
-  <li class="media" style="margin-bottom:100px;">
-    <div class="media-left">
-    <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="...">
-      </a>
-       <p style="text-align:center; font-size:16px;">清风自来</p>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">《南宋名人与临安》</h4>
-<p style="text-indent:50px;min-height:200px; overflow-x:auto">出版社: 杭州出版社;<br />
-第1版 (2010年12月1日)<br />
-丛书名: 南宋史研究丛书<br />
-《南宋名人与临安》是一部关于南宋名人与临安的书。南宋、临安、名人，构成了《南宋名人与临安》的三个关键词。《南宋名人与临安》以《南宋名人与临安》为题，固然要尽可能考订人物生平及其与临安的种种关系，但除此之外，笔者更希望将人物还原到复杂的历史过程中，尽可能对相关背景做出细致的描述，这种宽泛呈现（不可能做到全景呈现）的企图，或许能方便我们更真切地体会人物的命运和都市的发展。</p>
-    </div>
-  </li>
+  <%
+    }
+    %>
+  <!--li循环结束-->
   
 </ul>
 
@@ -210,11 +186,21 @@ filter:alpha(opacity=40);" data-toggle="modal" data-target="#uploadBook">点击�
 <!--用户上传须知结束-->
 <!--首页末页开始-->
 <nav aria-label="..." style="clear:both;">
+    <%
+        Integer curPage = (Integer) request.getAttribute("curPage");
+        Integer finalPage = (Integer) request.getAttribute("finalPage");
+        int prePage = curPage - 1, nextPage = curPage + 1;
+        if(curPage == 0){
+            prePage = 0;
+        } else if (curPage.intValue() == finalPage.intValue()) {
+            nextPage = finalPage.intValue();
+        }
+    %>
   <ul class="pager">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">前一页</a></li>
-    <li><a href="#">后一页</a></li>
-    <li><a href="#">末页</a></li>
+    <li><a href="viewBook.action?curPage=0">首页</a></li>
+    <li><a href="viewBook.action?curPage=<%=prePage%>">前一页</a></li>
+    <li><a href="viewBook.action?curPage=<%=nextPage%>">后一页</a></li>
+    <li><a href="viewBook.action?curPage=<%=finalPage%>">末页</a></li>
   </ul>
 </nav>
 <!--首页末页结束-->

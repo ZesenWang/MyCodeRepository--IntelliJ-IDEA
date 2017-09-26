@@ -1,5 +1,7 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="com.po.Audio" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,7 +68,7 @@ $(function (){
 <!-- 导航条 结束-->
 
 <!--音频大标题开始-->
- <div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:10%;">
+ <div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:15px;">
       <h1 style="color:#000;">音频分享楼</h1>
       <p style="text-indent:80px;"><small style="color: #333;font-size:20px;">你的心中也一定有一位盖世英雄，来和我们分享你的英雄吧~~</small>
       <button type="button" class="btn btn-primary" style="text-indent:0px;opacity:0.8;
@@ -124,23 +126,28 @@ filter:alpha(opacity=40);" id="uploadAudioButton">点击上传文件</button>
 <!--页面左半边已上传的音频文字显示开始-->
 <div class="left col-sm-7 col-sm-offset-1 col-xs-12">
 <ul class="media-list">
-   <!--第一个li-->
+   <!--li循环开始-->
+    <%
+        List list = (List) request.getAttribute("audio");
+        for(int i = 0; i < list.size(); i++) {
+            Audio audio = (Audio) list.get(i);
+    %>
   <li class="media" style="margin-bottom:100px;">
     <div class="media-left">
       <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="..."></br>
+        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="<%=audio.getPicturePath()%>" alt="..."></br>
          <p style="text-align:center; font-size:16px;">清风自来</p>
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading">我为了这一山春色而来</h4>
-      <p style="height:100px; overflow-x:auto">随着你的接近，风里涌动着故乡的气味。如同一泓清泉，沉淀出临安一个纯粹的历史</p>
+      <h4 class="media-heading"><%=audio.getHeader()%></h4>
+      <p style="height:100px; overflow-x:auto"><%=audio.getProfile()%></p>
         <blockquote class="media">
             <div class="media-left">
            <!-- <a href="#">
             <img class="media-object" src="C:\Users\Administrator\Music" alt="...">
              </a>-->
-             <audio style="width:600px" src="audio\董贞 - 斩龙.mp3" controls="controls">
+             <audio style="width:600px" src="<%=audio.getAudioPath()%>" controls="controls">
 Your browser does not support the audio tag.
 </audio>
             </div>
@@ -150,63 +157,10 @@ Your browser does not support the audio tag.
        </blockquote>
     </div>
   </li>
-  
-  <!--第二个li-->
-  <li class="media" style="margin-bottom:100px;">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="..."></br>
-         <p style="text-align:center; font-size:16px;">清风自来</p>
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">夏始春余</h4>
-      <p style="height:100px; overflow-x:auto">一泓泉水，一池柔情，一抹芳菲，桥外的荻花是老去的故事</p>
-        <blockquote class="media">
-            <div class="media-left">
-           <!-- <a href="#">
-            <img class="media-object" src="C:\Users\Administrator\Music" alt="...">
-             </a>-->
-             <audio style="width:600px" src="audio\董贞 - 斩龙.mp3" controls="controls">
-Your browser does not support the audio tag.
-</audio>
-            </div>
-           <!-- <div class="media-body">
-                <h4 class="media-heading">Media heading2</h4>
-            </div>-->
-       </blockquote>
-    </div>
-  </li>
-  
-  <!--第三个li-->
-   <li class="media" style="margin-bottom:100px;">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object img-thumbnail" style="height:120px;width:120px;"src="picture\shuomo.jpg" alt="..."></br>
-         <p style="text-align:center; font-size:16px;">清风自来</p>
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading">我为了这一山春色而来</h4>
-      <p style="height:100px; overflow-x:auto">还记得那年的夏天 ，椰子树占据了海边 ，太阳光灿烂得刺眼 你轻轻吻了我的脸 飞机越过海面 划下微笑弧线 就在一瞬间 你和我之间 相隔一个世纪般遥远 幻想的时间 却带不走回忆里的画面 你是此生最美的风景 让我心碎却如此着迷 就算世界动荡 再绝望也有微笑的勇气 </p>
-        <blockquote class="media">
-            <div class="media-left">
-           <!-- <a href="#">
-            <img class="media-object" src="C:\Users\Administrator\Music" alt="...">
-             </a>-->
-             <audio style="width:600px" src="audio\董贞 - 斩龙.mp3" controls="controls">
-Your browser does not support the audio tag.
-</audio>
-            </div>
-           <!-- <div class="media-body">
-                <h4 class="media-heading">Media heading2</h4>
-            </div>-->
-       </blockquote>
-    </div>
-  </li>
-
- 
-  
+    <%
+        }
+    %>
+    <!--li循环结束-->
 </ul>
 </div>
 
@@ -243,12 +197,22 @@ Your browser does not support the audio tag.
 <!--用户上传须知结束-->
 <!--首页末页开始-->
 <nav aria-label="..." style="clear:both;">
-  <ul class="pager">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">前一页</a></li>
-    <li><a href="#">后一页</a></li>
-    <li><a href="#">末页</a></li>
-  </ul>
+    <%
+        Integer curPage = (Integer) request.getAttribute("curPage");
+        Integer finalPage = (Integer) request.getAttribute("finalPage");
+        int prePage = curPage - 1, nextPage = curPage + 1;
+        if(curPage == 0){
+            prePage = 0;
+        } else if (curPage.intValue() == finalPage.intValue()) {
+            nextPage = finalPage.intValue();
+        }
+    %>
+    <ul class="pager">
+        <li><a href="viewAudio.action?curPage=0">首页</a></li>
+        <li><a href="viewAudio.action?curPage=<%=prePage%>">前一页</a></li>
+        <li><a href="viewAudio.action?curPage=<%=nextPage%>">后一页</a></li>
+        <li><a href="viewAudio.action?curPage=<%=finalPage%>">末页</a></li>
+    </ul>
 </nav>
 <!--首页末页结束-->
 <!-- 页脚开始-->

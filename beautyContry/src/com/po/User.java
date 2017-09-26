@@ -9,6 +9,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private String rpassword;
 
     public void setId(Integer id) {
         this.id = id;
@@ -46,9 +47,20 @@ public class User {
         this.email = email;
     }
 
-    public User(String username, String password, String email) {
+    public String getRpassword() {
+        return rpassword;
+    }
+
+    public void setRpassword(String rpassword) {
+        this.rpassword = rpassword;
+    }
+
+    public User(String username, String password, String email, String rpassword) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.rpassword = rpassword;
     }
+    //如果没有默认的构造函数，hibernate会报错
+    public User() {}
 }

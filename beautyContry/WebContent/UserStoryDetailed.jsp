@@ -1,5 +1,6 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -99,18 +100,18 @@ $(function (){
 </div>
 <!-- 导航条 结束-->
 <!-- 导航条 结束-->
-
+<%
+    List allInfo = (List) request.getAttribute("allInfo");
+    Object[] objects = (Object[]) allInfo.get(0);
+%>
 
 <!--详细内容页面开始-->
 <div class=" col-sm-12 col-sm-offset-2 col-xs-12">
-    <div class="page-header left col-sm-8 col-xs-12" style="margin-top:10%;">
-      <small style="color: #333;font-size:20px;">我的临安 <h1  style="color:#000;">     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;临安中学</h1></small>
+    <div class="page-header left col-sm-8 col-xs-12" style="margin-top:15px;">
+      <small style="color: #333;font-size:20px;">我的临安 <h1  style="color:#000;">     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=objects[1].toString()%></h1></small>
     </div>
 <!--详细内容页面结束-->
-  <div style="background-color:rgba(255,255,255,0.8); font-size:18px;" class="left col-sm-7 col-sm-offset-1 col-xs-12">&nbsp;&nbsp;&nbsp;浙江省临安中学创建于1952年，1953年5月被确定为全省重点办好的9所中学之一，1958年被列为省级16所重点中学之一，1981年又被定为省重点中学。<br />
-  2011年，临安市开工建设钱王宗庙、市图书馆，钱王宗庙进入内饰设计阶段，市图书馆完成主体工程建设。完成太阳镇、青山湖街道、锦南街道、湍口镇文体中心建设，完成锦北街道文体中心土建工程，清凉峰镇新建文体中心结顶，河桥镇启动文体中心扩建工程。高虹镇、昌化镇、太湖源镇、河桥镇、龙岗镇、湍口镇、太阳镇、於潜镇、潜川镇、天目山镇、青山湖街道、锦南街道、锦城街道13个镇（街道）建成市图书馆分馆。继续推进“农家书屋”工程， 70%的行政村建有“农家书屋”。创成省级文化强镇1个、文化示范村1个，杭州市级文化示范镇2个、综合文化站示范点1个、文化示范村10个。<br />
-&nbsp;&nbsp;&nbsp;2011年，全年获杭州市级以上奖项70项，涵盖美术、书法、摄影、戏曲（小品）、音乐、曲艺故事、民间艺术和群文理论等门类。  <br />
-&nbsp;&nbsp;&nbsp;我的中学！在临安！！</div>
+  <div style="background-color:rgba(255,255,255,0.8); font-size:18px;" class="left col-sm-7 col-sm-offset-1 col-xs-12">&nbsp;&nbsp;&nbsp;<%=objects[2].toString()%></div>
   
    <div class="right col-sm-3 col-sm-offset-1 hidden-xs" >
             <h4>Archives</h4>
@@ -171,14 +172,14 @@ $(function (){
     	<tr>
         <td>
             <div class="btn-group" role="group" style="padding: 2px 10px 2px 30px">
-            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="点赞"><span class="glyphicon glyphicon-thumbs-up"></span><span style="color:#FFF;">&nbsp;890</span>
+            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="点赞"><span class="glyphicon glyphicon-thumbs-up"></span><span style="color:#FFF;">&nbsp;<%=objects[3].toString()%></span>
             </button>
             </div>
     	</td>
         <td>
             <div class="btn-group" role="group" style="">
             <button type="button" class="btn btn-primary " data-toggle="tooltip" data-placement="bottom"   title="评论" id="addMessage">
-            <span class="glyphicon glyphicon-comment"></span><span style="color:#FFF;">&nbsp;208</span>
+            <span class="glyphicon glyphicon-comment"></span><span style="color:#FFF;">&nbsp;<%=allInfo.size()%></span>
             </button>
             </div>
         </td>
@@ -186,11 +187,14 @@ $(function (){
     </table>
     
 <!--留言内容开始-->
-
-    <div style=" min-height:80px;background-color:rgba(255,255,255,0.6); margin-bottom:10px; border:#333 dashed 1.5px;">清风自来：</br>&nbsp;&nbsp;&nbsp;走过我的历史，踏向我的未来，感受文化如氤氲之气的气息，让每一个细胞都有一种吟诗的冲动。</div>
-    <div style="min-height:80px;background-color:rgba(255,255,255,0.6); margin-bottom:10px; border:#333 dashed 1.5px;">艾青《献给乡村的诗》：</br>&nbsp;&nbsp;&nbsp;“我想起乡村田野上的道路－－用卵石或石板铺的曲折窄小的道路。”</div>
-    <div style="min-height:80px;background-color:rgba(255,255,255,0.6); margin-bottom:10px; border:#333 dashed 1.5px;">南朝宋谢灵运《石室山诗》:</br>&nbsp;&nbsp;&nbsp;“乡村绝闻见，樵苏限风霄。”唐韩愈《论变盐法事宜状》：“平叔又请乡村去州县远处，令所由将盐就村糶易。</div>
-    
+    <%
+        for(int i = 0; i < allInfo.size(); i++){
+            objects = (Object[]) allInfo.get(i);
+    %>
+    <div style=" min-height:80px;background-color:rgba(255,255,255,0.6); margin-bottom:10px; border:#333 dashed 1.5px;"><%=objects[4].toString()%>：</br>&nbsp;&nbsp;&nbsp;<%=objects[5].toString()%></div>
+     <%
+         }
+     %>
     <!--首页末页开始-->
     <nav aria-label="..." style="clear:both;">
       <ul class="pager">
@@ -254,7 +258,7 @@ $(function (){
 </div><!-- /.modal -->
 <!--编辑内容模态框结束-->
 
-
+<p><button type="button" class="btn btn-primary" style="text-indent:0px;opacity:0.8;filter:alpha(opacity=40);">返回</button></p>
 <!-- 我要留言模态框Modal开始 -->
 <div class="modal fade" id="myAddMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

@@ -7,5 +7,7 @@ public class BitOperator {
         System.out.println(5 >>> 2);
         System.out.println(-5 >> 2);
         System.out.println(-5 >>> 2);
+        Object o = new Object();
+
     }
 }

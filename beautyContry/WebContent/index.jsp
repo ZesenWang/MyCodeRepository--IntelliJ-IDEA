@@ -97,31 +97,31 @@ article{font-size:$min-font-size;}
 
 <div class="container"  style="margin-top:3%;margin-bottom:5%;">
 <div class="col-lg-10 col-lg-offset-2  col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
-	<a href="bookShare.jsp">
+	<a href="viewBook.action?curPage=0">
 		<div class="col-lg-3 col-sm-6 col-md-6 col-xs-12">
 	    	 <img src="picture/test1.png" />
-	        <h3><strong>名书推荐</strong></h3><br /><span style="font-size:18px; color:#999;">为您展现最美的历史</span>
+	        <h3><strong>笔墨相传</strong></h3><br /><span style="font-size:18px; color:#999;">为您展现最美的历史</span>
 	    </div>
     </a>
     
-    <a href="audio.jsp">
+    <a href="viewAudio.action?curPage=0">
 	    <div class="col-lg-3 col-sm-6   col-md-6 col-xs-12">
 	    	 <img src="picture/test2.png" />
-	        <h3><strong>悦耳朗读</strong></h3><br /><span style="font-size:18px; color:#999;">轻轻吟诵，悠悠回荡</span>
+	        <h3><strong>丝竹人语声</strong></h3><br /><span style="font-size:18px; color:#999;">轻轻吟诵，悠悠回荡</span>
 	    </div>
     </a>
     
-    <a href="photoShow1.jsp">
+    <a href="viewPicture.action?curPage=0">
 	    <div class="col-lg-3 col-sm-6  col-md-6 col-xs-12 ">
 	    	  <img src="picture/test3.png" />
-	        <h3><strong>流连山色</strong></h3><br /><span style="font-size:18px; color:#999;">十里美景不如你</span>
+	        <h3><strong>风景旧曾谙</strong></h3><br /><span style="font-size:18px; color:#999;">十里美景不如你</span>
 	    </div>
     </a>
     
-    <a href="UserStoryList.jsp">
+    <a href="viewStory.action?curPage=0">
 	    <div class="col-lg-3 col-sm-6 col-md-6 col-xs-12 ">
 	    	  <img src="picture/test4.png" />
-	        <h3><strong>书写历史</strong></h3><br /><span style="font-size:18px; color:#999;">执笔于纸，墨色晕染成独一无二的历史描述</span>
+	        <h3><strong>寒灯之上书</strong></h3><br /><span style="font-size:18px; color:#999;">执笔于纸，墨色晕染成独一无二的历史描述</span>
 	    </div>
     </a>
 </div>

@@ -91,17 +91,28 @@ function openMissPWD(){
             <li role="separator" class="divider"></li>
           </ul>
         </li>  -->      
-        <li><a href="Content.jsp">指点山深处</a></li>    
-        <li><a href="photoShow1.jsp">风景旧曾谙</a></li>
-        <li><a href="bookShare.jsp">笔墨相传</a></li>
-        <li><a href="audio.jsp">丝竹人语声</a></li>
-        <li><a href="UserStoryList.jsp">寒灯纸上书</a></li>    
+        <li><a href="viewContent.action?curPage=0">指点山深处</a></li>
+        <li><a href="viewBook.action?curPage=0">笔墨相传</a></li>
+        <li><a href="viewAudio.action?curPage=0">丝竹人语声</a></li>
+        <li><a href="viewPicture.action?curPage=0">风景旧曾谙</a></li>
+        <li><a href="viewStory.action?curPage=0">寒灯纸上书</a></li>
         <li><a href="About Us.jsp">关于我们</a></li>
         <li name="submission" id="submission" style="display: none;" ><a href="">来件管理</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript:openLogin();">登陆\注册</a></li>
+          <%
+              String name = (String) session.getAttribute("username");
+              if(name != null){
+          %>
+        <li><a href="javascript:openLogin();"><%="欢迎你，"+name%></a></li>
+          <%
+              } else {
+          %>
+          <li><a href="javascript:openLogin();">登陆/注册</a></li>
+          <%
+              }
+          %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

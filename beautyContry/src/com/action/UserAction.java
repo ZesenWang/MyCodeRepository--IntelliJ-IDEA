@@ -1,5 +1,6 @@
 package com.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.po.User;
 import com.service.UserService;
@@ -54,12 +55,20 @@ public class UserAction extends ActionSupport{
     }
 
     public String register() throws Exception{
-        User user = new User(username, password, email);
+        User user = new User(username, password, email, rpassword);
         userService.register(user);
         return "success";
     }
     public String signin() throws Exception{
-        return "success";
+        User user = new User(username, password, email, rpassword);
+        boolean isSucceed = userService.signin(user);
+        if(isSucceed){
+            ActionContext.getContext().getSession().put("username", username);
+            System.out.println("user "+username+" signed in");
+            return "success";
+        }
+        System.out.println("user "+username+" failed to sign in");
+        return "error";
     }
     public String forget()  throws Exception{
         return "success";

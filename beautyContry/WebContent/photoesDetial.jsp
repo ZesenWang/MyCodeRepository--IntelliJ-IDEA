@@ -1,5 +1,6 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page import="java.util.List" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -91,37 +92,40 @@ function openMissPWD(){
 
 <!--用户倡言大标题开始-->
  <div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:10%;">
-      <h1 style="color:#000;">临安之———大明山</h1>
+      <h1 style="color:#000;">临安之———<%=request.getAttribute("gallery").toString()%></h1>
 </div>
 <!--用户倡言大标题结束-->
 
 
 <!--相册开始left  col-lg-10  col-lg-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 -->
+<%
+    List list = (List) request.getAttribute("pictureList");
+%>
 <div class="pics left col-sm-9 col-sm-offset-1 col-xs-12" >
 	<div style="margin-top:100px;" class="container-fluid">
-		<a href="picture/DaMingShan/1.jpg" data-lightbox="image-1" data-title="Click the right half of the image to move forward."><img src="picture/DaMingShan/1.jpg" class=" sigmapad col-lg-4 col-md-6 col-sm-6 col-xs-12" style="height:250px;" /></a>
+		<a href="<%=list.get(0)%>" data-lightbox="image-1" data-title="Click the right half of the image to move forward."><img src="<%=list.get(0)%>" class=" sigmapad col-lg-4 col-md-6 col-sm-6 col-xs-12" style="height:250px;" /></a>
 
-		<a href="picture/DaMingShan/2.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/2.jpg" class=" sigmapad col-lg-4 col-md-6 col-sm-6 col-xs-12" style="height:250px;"  /></a>
+		<a href="<%=list.get(1)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(1)%>" class=" sigmapad col-lg-4 col-md-6 col-sm-6 col-xs-12" style="height:250px;"  /></a>
 
-		<a href="picture/DaMingShan/3.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/3.jpg" class="sigmapad col-lg-4 col-md-8 col-sm-12 col-xs-12" style="height:250px;" /></a>
+		<a href="<%=list.get(2)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(2)%>" class="sigmapad col-lg-4 col-md-8 col-sm-12 col-xs-12" style="height:250px;" /></a>
 
-		<a href="picture/DaMingShan/4.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/4.jpg" class=" sigmapad col-lg-8 col-md-4 col-sm-4 col-xs-12" style="height:500px;"  /></a>
+		<a href="<%=list.get(3)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(3)%>" class=" sigmapad col-lg-8 col-md-4 col-sm-4 col-xs-12" style="height:500px;"  /></a>
 
-		<a href="picture/DaMingShan/5.jpg"　data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/5.jpg" class="sigmapad col-lg-4  col-md-4   col-sm-4  col-xs-12" style="height:250px;" /></a>
+		<a href="<%=list.get(4)%>"　data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(4)%>" class="sigmapad col-lg-4  col-md-4   col-sm-4  col-xs-12" style="height:250px;" /></a>
         
-        <a href="picture/DaMingShan/6.jpg" data-lightbox="image-1" data-title="Click the right half of the image to move forward."><img src="picture/DaMingShan/6.jpg" class=" sigmapad col-lg-4 col-md-4 col-sm-4 col-xs-12" style="height:250px;" /></a>
+        <a href="<%=list.get(5)%>" data-lightbox="image-1" data-title="Click the right half of the image to move forward."><img src="<%=list.get(5)%>" class=" sigmapad col-lg-4 col-md-4 col-sm-4 col-xs-12" style="height:250px;" /></a>
 
-		<a href="picture/DaMingShan/7.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/7.jpg" class=" sigmapad col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height:250px;"  /></a>
+		<a href="<%=list.get(6)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(6)%>" class=" sigmapad col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height:250px;"  /></a>
 
-		<a href="picture/DaMingShan/8.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/8.jpg" class="sigmapad col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height:250px;"/></a>
+		<a href="<%=list.get(7)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(7)%>" class="sigmapad col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height:250px;"/></a>
         
-        <a href="picture/DaMingShan/9.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/9.jpg" class=" sigmapad col-lg-3 col-md-3 col-sm-3 col-xs-12"  style="height:200px;" /></a>
+        <a href="<%=list.get(8)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(8)%>" class=" sigmapad col-lg-3 col-md-3 col-sm-3 col-xs-12"  style="height:200px;" /></a>
     
-       	<a href="picture/DaMingShan/10.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/10.jpg" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12" style="height:200px;" /></a>
+       	<a href="<%=list.get(9)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(9)%>" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12" style="height:200px;" /></a>
         
-        <a href="picture/DaMingShan/11.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/11.jpg" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12"  style="height:200px;"/></a>
+        <a href="<%=list.get(10)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(10)%>" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12"  style="height:200px;"/></a>
         
-        <a href="picture/DaMingShan/12.jpg" data-lightbox="image-1" data-title="My caption"><img src="picture/DaMingShan/12.jpg" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12"  style="height:200px;"/></a>
+        <a href="<%=list.get(11)%>" data-lightbox="image-1" data-title="My caption"><img src="<%=list.get(11)%>" class="sigmapad col-lg-3  col-md-3   col-sm-3  col-xs-12"  style="height:200px;"/></a>
         
 	</div>
 

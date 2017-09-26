@@ -15,17 +15,22 @@
 			</property>
 			<property name="hibernateProperties">
 				<props>
-					<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 					<prop key="show_sql">true</prop>
 				</props>
 			</property>
 			<property name="mappingResources">
 				<list>
 					<value>com/po/User.hbm.xml</value>
+					<value>com/po/Book.hbm.xml</value>
+					<value>com/po/Audio.hbm.xml</value>
+					<value>com/po/Story.hbm.xml</value>
+					<value>com/po/Picture.hbm.xml</value>
+					<value>com/po/Content.hbm.xml</value>
 				</list>
 			</property>
 	</bean>
-
+	<!--用户页面-->
 	<bean id="userDAO" class="com.dao.UserDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory"/>
@@ -41,5 +46,70 @@
 			<ref bean="userService"/>
 		</property>
 	</bean>
-
+	<!--推荐书籍页面-->
+	<bean id="bookDAO" class="com.dao.BookDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="bookService" class="com.service.BookService">
+		<property name="bookDAO">
+			<ref bean="bookDAO"/>
+		</property>
+	</bean>
+	<bean id="bookAction" class="com.action.BookAction" scope="prototype">
+		<property name="bookService">
+			<ref bean="bookService"/>
+		</property>
+	</bean>
+	<!--通用的DAO-->
+	<bean name="generalDAO" class="com.dao.GeneralDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!--音频页面-->
+	<bean id="audioService" class="com.service.AudioService">
+		<property name="generalDAO">
+			<ref bean="generalDAO"/>
+		</property>
+	</bean>
+	<bean id="audioAction" class="com.action.AudioAction" scope="prototype">
+		<property name="audioService">
+			<ref bean="audioService"/>
+		</property>
+	</bean>
+	<!--故事页面-->
+	<bean id="storyService" class="com.service.StoryService">
+		<property name="generalDAO">
+			<ref bean="generalDAO"/>
+		</property>
+	</bean>
+	<bean id="storyAction" class="com.action.StoryAction" scope="prototype">
+		<property name="storyService">
+			<ref bean="storyService"/>
+		</property>
+	</bean>
+	<!--图片页面-->
+	<bean id="pictureService" class="com.service.PictureService">
+		<property name="generalDAO">
+			<ref bean="generalDAO"/>
+		</property>
+	</bean>
+	<bean id="pictureAction" class="com.action.PictureAction" scope="prototype">
+		<property name="pictureService">
+			<ref bean="pictureService"/>
+		</property>
+	</bean>
+	<!--第二个页面-->
+	<bean id="contentService" class="com.service.ContentService">
+		<property name="generalDAO">
+			<ref bean="generalDAO"/>
+		</property>
+	</bean>
+	<bean id="contentAction" class="com.action.ContentAction" scope="prototype">
+		<property name="contentService">
+			<ref bean="contentService"/>
+		</property>
+	</bean>
 </beans>

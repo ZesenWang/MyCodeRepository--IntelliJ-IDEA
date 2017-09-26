@@ -1,5 +1,7 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+﻿<%@ page import="java.util.List" %>
+<%@ page import="com.po.Picture" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,7 +40,7 @@ body{
     position: relative;
     padding: 1px;
     margin-bottom: 36px;
-    border: 2px solid #ff6765;
+    border: 2px solid #999;
 	background-color: #CCC;
 }
 .p1_box a.bot {
@@ -122,25 +124,6 @@ border-color: transparent #ff6360 transparent transparent;
     background-color: #ff6360;
 }
 
-.type{
-    position: absolute;
-    display: block;
-    width: 52px;
-    left: 47px;
-    top: -2px;
-    z-index: 20;
-    height: 39px;
-    background: url(picture/photo_icon.png) center 8px no-repeat #fff;
-    box-shadow: 0 5px 5px rgba(0,0,0,1)
-}
-
-
-.bot {
-    background-color: #000;
-    border-color: #F00;
-}
-
-
 
 .box{
 		text-align: center;
@@ -208,7 +191,7 @@ border-color: transparent #ff6360 transparent transparent;
 <!-- 导航条 结束-->
 
 <!--相册首页大标题开始-->
-<div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:10%;">
+<div class="page-header col-lg-4 col-lg-offset-4  col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" style="clear:both;margin-top:15px;">
   <h1 style="color:#000;">相册集合地</h1>
       <p style="text-indent:80px;"><small style="color: #333;font-size:20px;">美景是用来欣赏的，这里有你家乡的美景嘛~~</small>
       <button type="button" class="btn btn-primary" style="text-indent:0px;opacity:0.8;
@@ -220,56 +203,27 @@ filter:alpha(opacity=40);"id="uploadPhone">点击上传你的分享</button>
 
 <!--页面左半边已上传的好书介绍文字显示开始-->
 <div class="left col-sm-9 col-sm-offset-1 col-xs-12" >
-  
+    <!--div循环开始-->
+    <%
+        List list = (List) request.getAttribute("picture");
+        for(int i = 0; i < list.size(); i++) {
+            Picture picture = (Picture) list.get(i);
+    %>
   <div class="col-sm-12 col-md-5 col-sm-offset-1 p1_box">
+  	<a href="detailPicture.action?reqGallery=<%=picture.getId()%>&reqPage=0&gallery=<%=picture.getTouristSpot()%>">
   	<div class="box">
-  		<div class="type"></div>
-  			<img src="picture/DaMingShan/10.jpg" class="img-responsive" alt="Responsive image" style="height:250px; width:100%;">
+  		<img src="<%=picture.getCoverImage()%>" class="img-responsive" alt="Responsive image" style="height:250px; width:100%;">
   		<div class="box-content">
-		<h3 class="title">大明山</h3>
-		<span class="post">镶嵌在杭州至黄山黄金旅游线上的一颗璀璨明珠</span>
+		<h3 class="title"><%=picture.getTouristSpot()%></h3>
+		<span class="post"><%=picture.getProfile()%></span>
         </div>
      </div>
-  <a href="photoesDetial.jsp" class="bot">大明山<span>7 <br>images</span></a>
+  </a>
   </div>
-
-
-    <div class="col-sm-12 col-md-5 col-sm-offset-1 p1_box">
-  <div class="box">
-  	<div class="type"></div>
-  	<img src="picture/ZheXiDaXiaGu/1.jpg" class="img-responsive" alt="Responsive image" style=" height:250px; width:100%;">
-  	<div class="box-content">
-		<h3 class="title">浙西大峡谷</h3>
-		<span class="post">华东第一旅游峡谷</span>
-         </div>
-     </div>
-  <a href="photoesDetial.jsp" class="bot">浙西大峡谷<span>7 <br>images</span></a>
-  </div>
-  
-    <div class="col-sm-12 col-md-5 col-sm-offset-1 p1_box">
-  <div class="box">
-  	<div class="type"></div>
-  	<img src="picture/TaiHuYuan/1.jpg" class="img-responsive" alt="Responsive image" style=" height:250px; width:100%;">
-  	<div class="box-content">
-		<h3 class="title">太湖源</h3>
-		<span class="post">野生动物的天堂</span>
-         </div>
-     </div>
-  <a href="photoesDetial.jsp" class="bot">太湖源<span>7 <br>images</span></a>
-  </div>
-  
-    <div class="col-sm-12 col-md-5 col-sm-offset-1 p1_box">
-  <div class="box">
-  	<div class="type"></div>
-  	<img src="picture/BaoHuQu/1.jpg" class="img-responsive" alt="Responsive image" style="height:250px; width:100%;">
-  	<div class="box-content">
-		<h3 class="title">浙江清凉峰国家级自然保护区</h3>
-		<span class="post">国家级自然保护区</span>
-         </div>
-     </div>
-  <a href="photoesDetial.jsp" class="bot">浙江清凉峰国家级自然保护区<span>7 <br>images</span></a>
-  </div>
-  
+    <%
+        }
+    %>
+    <!--div循环结束-->
 </div>
 <!--页面左半边已上传的好书介绍文字显示结束-->
 
@@ -304,12 +258,22 @@ filter:alpha(opacity=40);" data-toggle="modal" data-target="#uploadBook">点击�
 <!--用户上传须知结束-->
 <!--首页末页开始-->
 <nav aria-label="..." style="clear:both;">
-  <ul class="pager">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">前一页</a></li>
-    <li><a href="#">后一页</a></li>
-    <li><a href="#">末页</a></li>
-  </ul>
+    <%
+        Integer curPage = (Integer) request.getAttribute("curPage");
+        Integer finalPage = (Integer) request.getAttribute("finalPage");
+        int prePage = curPage - 1, nextPage = curPage + 1;
+        if(curPage == 0){
+            prePage = 0;
+        } else if (curPage.intValue() == finalPage.intValue()) {
+            nextPage = finalPage.intValue();
+        }
+    %>
+    <ul class="pager">
+        <li><a href="viewPicture.action?curPage=0">首页</a></li>
+        <li><a href="viewPicture.action?curPage=<%=prePage%>">前一页</a></li>
+        <li><a href="viewPicture.action?curPage=<%=nextPage%>">后一页</a></li>
+        <li><a href="viewPicture.action?curPage=<%=finalPage%>">末页</a></li>
+    </ul>
 </nav>
 <!--首页末页结束-->
 <!-- 页脚开始-->
