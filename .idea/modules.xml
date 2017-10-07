@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/PlatformEnvironment/PlatformEnvironment.iml" filepath="$PROJECT_DIR$/PlatformEnvironment/PlatformEnvironment.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" filepath="$PROJECT_DIR$/ReflectionAPI/ReflectionAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/RegularExpression/RegularExpression.iml" filepath="$PROJECT_DIR$/RegularExpression/RegularExpression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RetrofitTest/RetrofitTest.iml" filepath="$PROJECT_DIR$/RetrofitTest/RetrofitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/UDP/UDP.iml" filepath="$PROJECT_DIR$/UDP/UDP.iml" />
       <module fileurl="file://$PROJECT_DIR$/beautyContry/beautyContry.iml" filepath="$PROJECT_DIR$/beautyContry/beautyContry.iml" />
